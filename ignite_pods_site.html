@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignite Pods - Loja Oficial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-black text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-3xl font-bold">🔥 Ignite Pods</h1>
+      <nav class="space-x-6 text-lg">
+        <a href="#destaques" class="hover:text-yellow-400">Destaques</a>
+        <a href="#maisvendidos" class="hover:text-yellow-400">Mais Vendidos</a>
+        <a href="#faq" class="hover:text-yellow-400">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center p-10">
+    <h2 class="text-4xl font-bold mb-4">O POD MAIS DESEJADO DO BRASIL</h2>
+    <p class="text-xl">Entrega rápida. Qualidade Premium. Frete Grátis a partir de 3 unidades!</p>
+  </section>
+
+  <!-- Destaques e Promoções -->
+  <section id="destaques" class="max-w-7xl mx-auto py-10 px-4">
+    <h3 class="text-2xl font-bold mb-6 text-center">🔥 Destaques e Promoções</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <img src="https://images.unsplash.com/photo-1592878849124-8e8f27b46852" alt="Promo 1" class="rounded-lg shadow">
+      <img src="https://images.unsplash.com/photo-1612197528175-4c6ff9a4d504" alt="Promo 2" class="rounded-lg shadow">
+      <img src="https://images.unsplash.com/photo-1600185365483-e5f928c221ad" alt="Promo 3" class="rounded-lg shadow">
+    </div>
+  </section>
+
+  <!-- Produtos Mais Vendidos -->
+  <section id="maisvendidos" class="bg-gray-50 py-10 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h3 class="text-2xl font-bold mb-6 text-center">Nossos Pods Mais Vendidos</h3>
+      <div id="produtos-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Produtos serão inseridos por JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="max-w-7xl mx-auto px-4 py-10">
+    <h3 class="text-2xl font-bold mb-6">Dúvidas Frequentes</h3>
+    <details class="mb-4 bg-white p-4 rounded shadow">
+      <summary class="font-bold cursor-pointer">Qual é a duração de um pod?</summary>
+      <p class="mt-2 text-gray-600">Cada pod rende até 5000 puffs dependendo da intensidade de uso.</p>
+    </details>
+    <details class="mb-4 bg-white p-4 rounded shadow">
+      <summary class="font-bold cursor-pointer">Vocês entregam para todo o Brasil?</summary>
+      <p class="mt-2 text-gray-600">Sim! Entregamos em todo o território nacional com rapidez.</p>
+    </details>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-black text-white text-center py-6 mt-10">
+    <p>&copy; 2025 Ignite Pods - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const produtos = [
+      { nome: 'Manga Ice', preco: 159, img: 'https://via.placeholder.com/300x200' },
+      { nome: 'Blueberry', preco: 159, img: 'https://via.placeholder.com/300x200' },
+      { nome: 'Uva Ice', preco: 159, img: 'https://via.placeholder.com/300x200' },
+      { nome: 'Melancia Ice', preco: 159, img: 'https://via.placeholder.com/300x200' },
+      { nome: 'Banana Ice', preco: 159, img: 'https://via.placeholder.com/300x200' },
+      // Gere até 50 ou mais produtos se desejar
+    ];
+
+    const container = document.getElementById('produtos-container');
+
+    produtos.forEach(p => {
+      const div = document.createElement('div');
+      div.className = "bg-white rounded-lg shadow p-4 flex flex-col justify-between";
+      div.innerHTML = `
+        <img src="${p.img}" alt="Produto" class="rounded mb-4">
+        <h4 class="text-lg font-bold">${p.nome}</h4>
+        <p class="text-sm text-gray-500">5000 puffs · 5% Nicotina</p>
+        <p class="text-green-600 text-lg font-bold mb-4">R$ ${p.preco},00</p>
+        <button onclick="comprar('${p.nome}')" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded">Adicionar ao Carrinho</button>
+      `;
+      container.appendChild(div);
+    });
+
+    function comprar(sabor) {
+      const numero = '5512988888577';
+      const mensagem = encodeURIComponent(`Olá! Tenho interesse no pod Ignite sabor ${sabor}. Ainda está disponível?`);
+      window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
